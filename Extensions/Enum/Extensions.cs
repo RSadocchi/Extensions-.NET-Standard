@@ -16,5 +16,13 @@ namespace Extensions.Enum
             return value.Value;
         }
 
+        public static TValue GetComplexValue<T, TValue>(this T sourcee) where T : struct, IConvertible where TValue : Type
+        {
+            if (!typeof(T).IsEnum) return null;
+            Type attr = null;
+            ComplexValue value = (ComplexValue)Attribute.GetCustomAttribute(attr, typeof(ComplexValue));
+            if (value == null) return null;
+            return (TValue)value.Value;
+        }
     }
 }
