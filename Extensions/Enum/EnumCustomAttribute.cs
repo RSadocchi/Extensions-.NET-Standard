@@ -11,4 +11,5 @@ namespace Extensions.Enum
             Value = value;
         }
     }
+
 }
