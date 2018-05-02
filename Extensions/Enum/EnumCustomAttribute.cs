@@ -2,7 +2,7 @@
 
 namespace Extensions.Enum
 {
-    [AttributeUsage(AttributeTargets.Enum, AllowMultiple = false, Inherited = false)]
+    [AttributeUsage(AttributeTargets.Enum | AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
     public class StringValue : Attribute
     {
         public string Value { get; private set; }
@@ -12,7 +12,17 @@ namespace Extensions.Enum
         }
     }
 
-    [AttributeUsage(AttributeTargets.Enum, AllowMultiple = false, Inherited = false)]
+    [AttributeUsage(AttributeTargets.Enum | AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
+    public class SimpleValue : Attribute
+    {
+        public object Value { get; private set; }
+        public SimpleValue(object value)
+        {
+            Value = value;
+        }
+    }
+
+    [AttributeUsage( AttributeTargets.Enum | AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
     public class ComplexValue : Attribute
     {
         public object Value { get; private set; }

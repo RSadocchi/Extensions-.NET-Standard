@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>com.bubbles.extensions</PackageId>
+    <Authors>Riccardo Sadocchi</Authors>
+    <Company>{bubbles}Tech</Company>
+    <Description />
+    <Copyright />
   </PropertyGroup>
 
 </Project>

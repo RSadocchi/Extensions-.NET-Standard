@@ -16,12 +16,16 @@ namespace Extensions.Enum
             return value.Value;
         }
 
-        public static TValue GetComplexValue<T, TValue>(this T sourcee) where T : struct, IConvertible where TValue : Type
+        public static TValue GetComplexValue<T, TValue>(this T sourcee) 
+            where T : struct, IConvertible 
+            where TValue : Type
         {
             if (!typeof(T).IsEnum) return null;
             Type attr = null;
             ComplexValue value = (ComplexValue)Attribute.GetCustomAttribute(attr, typeof(ComplexValue));
             if (value == null) return null;
+            if (value.ValueType != null && value.ValueType != typeof(TValue))
+                throw new InvalidCastException($"Value is type of '{value.ValueType.GetType()}', cannot be casted in {typeof(TValue)}");
             return (TValue)value.Value;
         }
     }
